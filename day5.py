@@ -45,6 +45,6 @@ humidity_to_location = dict()
 def find_mapping(current_numbers, mapping):
     for map in mapping:
         list_temp = range(map[0],map[2])
-    if current_numbers
+    
     return current_numbers
     
