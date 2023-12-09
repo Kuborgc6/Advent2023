@@ -10,13 +10,19 @@ power_dict = {'A': 14, 'K': 13, 'Q': 12, 'J': 1, 'T': 10, '9': 9, '8': 8, '7': 7
 players = list()
 for line in lines:
     hand = line[0]
+    hand_og = line[0]
     bid = int(line[1])
-    # temp_most_common = 0
-    # temp_common = ''
-    # if 'J' in hand:
-    #     for card in set(hand):
-    #         if hand.count(card) >= temp_most_common:
-    #             temp_common = hand.count(card)
+    temp_most_common = 0
+    temp_common = ''
+    if 'J' in hand:
+        hand_set = set(hand)
+        hand_set.remove('J')
+        if hand_set:
+            for card in hand_set:
+                if hand.count(card) >= temp_most_common:
+                    temp_most_common = hand.count(card)
+                    temp_common = card
+            hand = hand.replace("J", temp_common)
 
     strength = hand.count(max(set(hand), key = hand.count))
     if strength == 2:
@@ -36,9 +42,9 @@ for line in lines:
             strength = 3.5
     
     second_order = list() 
-    for card in hand:
+    for card in hand_og:
         second_order.append(power_dict[card])
-    players.append([hand, bid, strength, second_order])
+    players.append([hand_og, bid, strength, second_order])
 
 players = sorted(players, key=itemgetter(2))
 
