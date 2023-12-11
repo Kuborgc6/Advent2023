@@ -8,6 +8,8 @@ file = open("input.txt", 'r')
 lines = day9.prep_data(file)
 
 # result = day8.find_zzz(nodes, commands, starting_node, left_right)
-result = day9.find_all_values(lines)
+result = day9.find_all_next_values(lines)
+print(result)
 
+result = day9.find_all_previous_values(lines)
 print(result)
