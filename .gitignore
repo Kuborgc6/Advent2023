@@ -1,2 +1,7 @@
 input_test.txt
 input.txt
+input_test_2.txt
+input_test_3.txt
+__pycache__/day8.cpython-312.pyc
+.gitignore
+__pycache__/test_unittests.cpython-312.pyc
